@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700&subset=latin-ext');
+$font: 'Lato', sans-serif;
+
+$colorGreen: #28B62C;
+$colorBlue: #222a33;
+$colorRed: #d24;
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: #eee;
+	font-family: $font;
+}
+
+button {
+	border: none;
+	padding: 0.5em;
+	color: white;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 1.5em;
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+#container {
+	height: 100vh;
+	display: flex;
+
+	#game-container {
+		background: $colorBlue;
+		display: flex;
+		flex-direction: column;
+		flex: 2;
+
+		#game {
+			display: flex;
+			flex: 1;
+			align-items: center;
+			justify-content: center;
+
+			#map {
+				position: relative;
+				
+				#player {
+					position: absolute;
+					width: 10%;
+					left: 0;
+					top: 0;
+					line-height: calc(100%/7);
+					transform: translate(25%, 25%);
+					transition: 1s all;
+				}
+			}
+		}
+
+		#reset {
+			background: $colorRed;
+		}
+	}
+
+	#editor {
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+		
+		#code {
+			flex: 1;
+			overflow: scroll;
+			font-size: 2.5em;
+
+			.CodeMirror {
+				height: 100%;
+			}
+		}
+
+		#run {
+			background: $colorGreen;
+			flex: none;
+		}
+	}
+	
+	#instructions {
+		font-size: 2.5em;
+		flex: 1;
+			
+		h2 {
+			text-transform: uppercase;
+			letter-spacing: 3px;
+			color: $colorBlue;
+			font-weight: 700;
+		}
+		
+		p {
+			font-weight: 400;
+			font-size: 0.8em;
+		}
+	}
+}
